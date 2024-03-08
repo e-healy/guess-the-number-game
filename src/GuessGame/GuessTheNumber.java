@@ -41,3 +41,18 @@ class Game {
     }
 
 }
+
+// Inheritance: Derived class (Player) inherits attributes and methods from the base class (Object).
+class Player extends Game {
+    private final String playerName;
+
+    // Player constructor
+    public Player(String playerName, int maxRange, int numberOfAttempts) {
+        super(maxRange, numberOfAttempts);
+        this.playerName = playerName;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+}

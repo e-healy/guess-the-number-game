@@ -1,4 +1,4 @@
-## Guess the Number Game
+# Guess the Number Game
 In this project, I used Java to create a simple guess the number game.
 
 ## How it works 

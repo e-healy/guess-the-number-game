@@ -24,7 +24,7 @@ class Game {
             System.out.println("Congratulations! You guessed the correct number.");
             return true;
         } else if (guess < randomNumber) {
-            System.out.println("Try a higher number. Attempts left" + numberOfAttempts);
+            System.out.println("Try a higher number. Attempts left: " + numberOfAttempts);
         } else {
             System.out.println("Try a lower number. Attempts left: " + numberOfAttempts);
         }
@@ -54,5 +54,35 @@ class Player extends Game {
 
     public String getPlayerName() {
         return playerName;
+    }
+}
+
+public class GuessTheNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the Guessing Game!");
+
+        System.out.print("Enter your name: ");
+        String playerName = scanner.nextLine();
+
+        System.out.print("Enter the maximum range for the guessing game: ");
+        int maxRange = scanner.nextInt();
+
+        System.out.print("Enter the number of attempts: ");
+        int numberOfAttempts = scanner.nextInt();
+
+        Player player = new Player(playerName, maxRange, numberOfAttempts);
+
+        while (!player.isGameOver()) {
+            System.out.print("Guess the number between 1 and " + maxRange + ": ");
+            int guess = scanner.nextInt();
+            if (player.guessNumber(guess)) {
+                break;
+            }
+        }
+
+        System.out.println("Game over! The correct number was: " + player.getNumber());
+        scanner.close();
     }
 }
